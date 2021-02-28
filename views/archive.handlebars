@@ -1,0 +1,18 @@
+{{!-- views/index.handlebars --}}
+
+{{#each post}}
+<article class="post">
+    <div class="post-content">
+        <div class="post-content-head">
+            <a href="/post/{{_id}}"><h1>{{title}}</h1></a>
+            <div class="h1-underline">&nbsp;</div>
+            <time>{{printDate date}}</time>
+        </div>
+        <div class="post-content-footer">
+            <a href="/cat/{{category._id}}"><button class="category">{{category.name}}</button></a>
+            <a href="/post/{{_id}}"><button class="actionRead">Read More</button></a>
+        </div>
+    </div>
+</article>
+    
+{{/each}}

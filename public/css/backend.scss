@@ -1,0 +1,59 @@
+@use "style";
+
+$breakpoint-tablet: 768px;
+$max-screen: 2500px;
+$gutter-size: 25px;
+
+$heading-font-size: 2rem;
+$smaller-heading-font-size: 1.5rem;
+
+$dark: #000000;
+$light: #ffffff;
+
+
+p.error {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-holder input {
+    margin-top: 10px;
+    font-family: 'Anton', sans-serif;
+    font-size: $smaller-heading-font-size;
+    padding: 5px 7.5px 5px 7.5px;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    background-color: $dark;
+    color: $light;
+    &:hover {
+        background-color: #ffffff;
+        color: $dark;
+    }
+}
+
+.backend-categories {
+    span {
+        margin-right: 10px;
+        font-family: 'Anton', sans-serif;
+        font-size: $smaller-heading-font-size;
+        padding: 5px 7.5px 5px 7.5px;
+        text-transform: uppercase;
+        border: none;
+        transition: all 0.25s ease-in-out;
+        background-color: $dark;
+        color: $light;
+    }
+}
+
+form h1 {
+    text-transform: uppercase;
+}

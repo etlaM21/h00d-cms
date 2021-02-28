@@ -1,0 +1,70 @@
+{{!-- views/admin-statictext.handlebars --}}
+
+<link rel="stylesheet" href="../../richtexteditor/rte_theme_default.css" />  
+<script type="text/javascript" src="../../richtexteditor/rte.js"></script>  
+<script type="text/javascript" src='../../richtexteditor/plugins/all_plugins.js'></script>  
+
+<article>
+    <h1>Add or edit static texts.</h1>
+</article>
+
+<article>
+    <h1>About Page</h1>
+    <form action="/admin/statictext" method="POST">
+        <h1>The Title</h1>
+        <input type="text" width="600" name="title" id="title" class="input", value="{{about.title}}"></input>
+        <br>
+        <h1>Main Image</h1>
+        <input type="text" width="1000" name="imgurl" id="imgurl" class="input", value="{{about.imgurl}}"></input>
+        <br>
+        <h1>The Content</h1>
+        <textarea name="content" id="content" class="input", value="{{about.content}}" placeholder="{{about.content}}">{{about.content}}</textarea>
+        <input type="hidden"  name="id" id="id" value="{{about._id}}">{{about.id}}</input>
+        <div class="btn-holder">
+            <input type="submit" value="Edit" class="btn wide">
+        </div>
+    </form>
+</article>
+
+<article>
+    <h1>Contact Page</h1>
+    <form action="/admin/statictext" method="POST">
+        <h1>The Title</h1>
+        <input type="text" width="600" name="title" id="title" class="input", value="{{contact.title}}"></input>
+        <br>
+        <h1>Main Image</h1>
+        <input type="text" width="1000" name="imgurl" id="imgurl" class="input", value="{{contact.imgurl}}"></input>
+        <br>
+        <h1>The Content</h1>
+        <textarea name="content" id="content" class="input", value="{{contact.content}}" placeholder="{{contact.content}}">{{contact.content}}</textarea>
+        <input type="hidden"  name="id" id="id" value="{{contact._id}}">{{contact.id}}</input>
+        <div class="btn-holder">
+            <input type="submit" value="Edit" class="btn wide">
+        </div>
+    </form>
+</article>
+
+<article>
+    <h1>Imprint</h1>
+    <form action="/admin/statictext" method="POST">
+        <h1>The Title</h1>
+        <input type="text" width="1000" name="title" id="title" class="input", value="{{imprint.title}}"></input>
+        <br>
+        <h1>Main Image</h1>
+        <input type="text" width="1000" name="imgurl" id="imgurl" class="input", value="{{imprint.imgurl}}"></input>
+        <br>
+        <h1>The Content</h1>
+        <textarea name="content" id="content" class="input", value="{{imprint.content}}" placeholder="{{imprint.content}}">{{imprint.content}}</textarea>
+        <input type="hidden"  name="id" id="id" value="{{imprint._id}}">{{imprint.id}}</input>
+        <div class="btn-holder">
+            <input type="submit" value="Edit" class="btn wide">
+        </div>
+    </form>
+</article>
+
+<script>
+    // Rich Text Editor
+    let aboutEditor = new RichTextEditor(document.getElementsByTagName("form")[0].getElementsByClassName("input")[2]); 
+    let contactEditor = new RichTextEditor(document.getElementsByTagName("form")[1].getElementsByClassName("input")[2]); 
+    let imprintEditor = new RichTextEditor(document.getElementsByTagName("form")[2].getElementsByClassName("input")[2]); 
+</script>

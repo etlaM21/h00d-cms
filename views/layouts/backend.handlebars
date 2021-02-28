@@ -1,0 +1,59 @@
+{{!-- views/layouts/backend.handlebars --}}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Backend</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="../../css/backend.css">
+</head>
+<body>
+    <nav>
+        <a href="./add">Add Post</a>
+        <a href="./edit" class="active-nav">Edit Post</a>
+        <a href="./categories">Categories</a>
+        <a href="./statictext">Static Text</a>
+        <div id="nav-underline">&nbsp;</div>
+    </nav>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            attachNavScript();
+            adjustNavUnderline(document.getElementsByTagName("nav")[0].getElementsByClassName("active-nav")[0]);
+        });
+
+        function attachNavScript(){
+            let navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
+            for(i = 0; i < navlinks.length; i++){
+                navlinks[i].addEventListener("mouseover", (event) => {
+                    adjustNavUnderline(event.currentTarget);
+                });
+                navlinks[i].addEventListener("mouseleave",(event) => {
+                    adjustNavUnderline(document.getElementsByTagName("nav")[0].getElementsByClassName("active-nav")[0]);
+                });
+            }
+        }
+
+        function adjustNavUnderline(focusElement){
+            let underline = document.getElementById("nav-underline");
+            underline.style.width = focusElement.offsetWidth + "px";
+            underline.style.left = focusElement.offsetLeft + "px";
+        }
+    </script>
+
+    <main>
+        <article class="errors">
+            {{#each errors}}
+                <p class="error">{{text}}</p>
+            {{/each}}
+        </article>
+        {{{body}}}
+    </main>
+
+</body>
+</html>

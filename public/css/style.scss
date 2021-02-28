@@ -1,0 +1,265 @@
+$breakpoint-tablet: 768px;
+$max-screen: 2500px;
+$gutter-size: 25px;
+
+$heading-font-size: 2rem;
+$smaller-heading-font-size: 1.5rem;
+
+$dark: #000000;
+$light: #ffffff;
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width:100vw;
+    position: relative;
+    overflow-x: hidden;
+}
+
+@media (min-width: $breakpoint-tablet) {
+    nav {
+        position: sticky;
+        top: 0;
+        height: 75px;
+        width: 75%;
+        min-width: $breakpoint-tablet;
+        max-width: $max-screen;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 25px;
+        z-index: 100;
+        background-color: $light;
+        a {
+            text-transform: uppercase;
+            font-family: 'Anton', sans-serif;
+            font-size: $heading-font-size;
+            margin-right: 50px;
+            color: $dark;        
+            cursor: pointer;
+            z-index: 10;
+            text-decoration: none;
+        }
+        #nav-underline {
+            width: 0px;
+            height: 5px;
+            background-color: $dark;
+            position: absolute;
+            left: 0;
+            top: calc(25px + #{$heading-font-size} + 10px);
+            transition: all 0.25s ease-in-out;
+        }
+    }  
+    main {
+        max-width: $max-screen; 
+        article {
+            width: 75%;
+            min-width: $breakpoint-tablet;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            position: relative;
+            h1 {
+                font-family: 'Anton', sans-serif;
+            }
+            time {
+                font-family: 'Anton', sans-serif;
+            }
+            &.preview {
+                margin-bottom: 50px;
+                height: 400px;
+                .preview-image{
+                    height: 100%;
+                    width: calc(50% - #{$gutter-size / 2});
+                    position: relative;
+                    background-size: cover;
+                    &.right {
+                        float: right;
+                        margin-left: $gutter-size;
+                    }
+                    &.left {
+                        float: left;
+                        margin-right: $gutter-size;
+                    }
+                }
+                .preview-content{
+                    height: 100%;
+                    height: 100%;
+                    width: calc(50% - #{$gutter-size / 2}); // -0.1 is a weird fix to have the actual (uasbale) remaining width
+                    position: absolute;
+                    &.right{     
+                        top: 0;
+                        right: 0;
+                    }
+                    &.left{     
+                        top: 0;
+                        left: 0;
+                    }
+                    .preview-content-head {
+                        height: 45px;
+                        width: 100%;
+                        position: relative;
+                        margin-bottom: 15px;
+                        a {
+                            color: inherit;
+                            text-decoration: none;
+                        }
+                        h1 {
+                            font-size: $heading-font-size;
+                        }
+                        .h1-underline {
+                            width: 175px;
+                            height: 5px;
+                            background-color: $dark;
+                            position: absolute;
+                            left: 0;
+                            top: calc(#{$heading-font-size} + 10px);
+                        }
+                        time {
+                            font-size: $smaller-heading-font-size;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                        }
+                    }
+                    .preview-content-body {
+                        height: 290px;
+                        font-family: 'Work Sans', sans-serif;
+                        p {
+                            font-family: 'Work Sans', sans-serif;
+                        }
+                    }
+                    .preview-content-footer{
+                        button {
+                            font-family: 'Anton', sans-serif;
+                            font-size: $smaller-heading-font-size;
+                            padding: 5px 7.5px 5px 7.5px;
+                            text-transform: uppercase;
+                            border: none;
+                            transition: all 0.25s ease-in-out;
+                            cursor: pointer;
+                            &.category {
+                                background-color: $dark;
+                                color: $light;
+                                &:hover {
+                                    background-color: #ffffff;
+                                    color: $dark;
+                                }
+                            }
+                            &.actionRead {
+                                float:right;
+                                background-color: #ffffff;
+                                color: $dark;
+                                &:hover {
+                                    background-color: $dark;
+                                    color: $light;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.post {
+                .post-image{
+                    height: 400px;
+                    width: 100%;
+                    position: relative;
+                    background-size: cover;
+                    background-position: center;
+                    margin-bottom: 35px;
+                }
+                .post-content-head {
+                    height: 45px;
+                    width: 100%;
+                    position: relative;
+                    margin-bottom: 35px;
+                    a {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                    
+                    h1 {
+                        font-size: $heading-font-size;
+                    }
+                    .h1-underline {
+                        width: 175px;
+                        height: 5px;
+                        background-color: $dark;
+                        position: absolute;
+                        left: 0;
+                        top: calc(#{$heading-font-size} + 10px);
+                    }
+                    time {
+                        font-size: $smaller-heading-font-size;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+                .post-content-body {
+                    margin-bottom: 35px;
+                    font-family: 'Work Sans', sans-serif;
+                    p {
+                        font-family: 'Work Sans', sans-serif;
+                    }
+                }
+                .post-content-footer{
+                    margin-bottom: 35px;
+                    button {
+                        font-family: 'Anton', sans-serif;
+                        font-size: $smaller-heading-font-size;
+                        padding: 5px 7.5px 5px 7.5px;
+                        text-transform: uppercase;
+                        border: none;
+                        transition: all 0.25s ease-in-out;
+                        cursor: pointer;
+                        &.category {
+                            background-color: $dark;
+                            color: $light;
+                            &:hover {
+                                background-color: #ffffff;
+                                color: $dark;
+                            }
+                        }
+                        &.actionRead {
+                            margin-left: 35px;
+                            background-color: #ffffff;
+                            color: $dark;
+                            &:hover {
+                                background-color: $dark;
+                                color: $light;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        position: sticky;
+        bottom: 0;
+        height: 60px;
+        background-color: $dark;
+        padding-top: 12.5px;
+        a {
+            font-family: 'Anton', sans-serif;
+            font-size: $smaller-heading-font-size;
+            color: $light;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-left: 26%;
+            &:first-of-type{
+                float: left;
+                margin-left: 2.5%;
+            }
+            &:last-of-type{
+                float: right;
+                margin-left: 0;
+                margin-right: 4%;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{{!-- views/admin-addpost.handlebars --}}
+
+
+<link rel="stylesheet" href="..//richtexteditor/rte_theme_default.css" />  
+<script type="text/javascript" src="..//richtexteditor/rte.js"></script>  
+<script type="text/javascript" src='..//richtexteditor/plugins/all_plugins.js'></script>  
+
+
+<article>
+    <h1>Add a post.</h1>
+</article>
+
+<article>
+    <form action="./add" method="POST">
+        <h1>The Title</h1>
+        <input type="text" width="600" name="title" id="title" class="input", placeholder="Post title ..."></input>
+        <br>
+        <!-- <textarea rows="20" coloumn="300" name="content" id="content" class="input", placeholder="Post content ..."></textarea>
+        <br>
+        <textarea rows="5" coloumn="300" name="excerpt" id="excerpt" class="input", placeholder="Post excerpt ..."></textarea> -->
+        <h1>The Content</h1>
+        <textarea name="content" id="content" class="input", placeholder="Post content ..."></textarea>
+        <br>
+        <h1>The Excerpt</h1>
+        <textarea name="excerpt" id="excerpt" class="input", placeholder="Post excerpt ..."></textarea>
+        <br>
+        <h1>Main Image</h1>
+        <input type="text" width="600" name="image" id="image" class="input", placeholder="Post main image url ..."></input>
+        <br>
+        <h1>The Date</h1>
+        <input type="date" width="600" name="date" id="date" class="input", placeholder="Post date ..."></input>
+        <br>
+        <h1>The Category</h1>
+        <select name="category" id="category">
+            {{#each categories}}
+                <option id="{{_id}}" value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <div class="btn-holder">
+            <input type="submit" value="Add" class="btn wide">
+        </div>
+    </form>
+</article>
+
+<script>
+    // Rich Text Editor
+    let contentEditor = new RichTextEditor("#content"); 
+    let excerpt =  new RichTextEditor("#excerpt");
+</script>

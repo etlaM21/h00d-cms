@@ -1,0 +1,56 @@
+{{!-- views/admin-editpost.handlebars --}}
+
+
+<article>
+    <h1>Edit a post.</h1>
+</article>
+
+{{#each post}}
+<article class="post">
+    <div class="post-content">
+        <div class="post-content-head">
+            <a href="/post/{{_id}}"><h1>{{title}}</h1></a>
+            <div class="h1-underline">&nbsp;</div>
+            <time>{{printDate date}}</time>
+        </div>
+        <div class="post-content-footer">
+            <a href="/cat/{{category._id}}"></a><button class="category">{{category.name}}</button></a>
+            <a href="/admin/edit/{{_id}}"><button class="actionRead">Edit</button></a>
+        </div>
+    </div>
+</article>
+{{/each}}
+
+<script>
+    function adjustUnderline(underline){
+        // underline.style.width = underline.previousElementSibling.getElementsByTagName("h1")[0].innerHTML.offsetWidth + "px";
+        underline.style.width = getTextWidth(underline.previousElementSibling.getElementsByTagName("h1")[0].innerHTML, "bold 2rem Anton") + "px";
+    }
+
+    /**
+    * Uses canvas.measureText to compute and return the width of the given text of given font in pixels.
+    * 
+    * @param {String} text The text to be rendered.
+    * @param {String} font The css font descriptor that text is to be rendered with (e.g. "bold 14px verdana").
+    * 
+    * @see https://stackoverflow.com/questions/118241/calculate-text-width-with-javascript/21015393#21015393
+    */
+    function getTextWidth(text, font) {
+        // re-use canvas object for better performance
+        var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+        var context = canvas.getContext("2d");
+        context.font = font;
+        var metrics = context.measureText(text);
+        return metrics.width;
+    }
+
+    console.log(getTextWidth("hello there!", "bold 12pt arial"));  // close to 86
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+        let underlines = document.getElementsByClassName("h1-underline");
+        for(i = 0; i < underlines.length; i++){
+            adjustUnderline(underlines[i]);
+        }
+    });
+</script>

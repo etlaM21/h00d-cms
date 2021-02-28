@@ -1,0 +1,22 @@
+{{!-- views/post.handlebars --}}
+
+<article class="post">
+    <div class="post-image" style="background-image: url('{{post.imgurl}}');">
+        &nbsp;
+    </div>
+    <div class="post-content">
+        <div class="post-content-head">
+            <a><h1>{{post.title}}</h1></a>
+            <div class="h1-underline">&nbsp;</div>
+            <time>{{printDate post.date}}</time>
+        </div>
+        <div class="post-content-body">
+            <p>
+                {{{post.text}}}
+            </p>
+        </div>
+        <div class="post-content-footer">
+            <a href="/cat/{{post.category._id}}"><button class="category">{{post.category.name}}</button></a>
+        </div>
+    </div>
+</article>

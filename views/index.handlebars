@@ -1,0 +1,26 @@
+{{!-- views/index.handlebars --}}
+
+{{#each post}}
+<article class="preview">
+    <div class="preview-image {{previewImgPosition @index}}" style="background-image: url('{{imgurl}}');">
+        &nbsp;
+    </div>
+    <div class="preview-content {{previewContentPosition @index}}">
+        <div class="preview-content-head">
+            <a href="/post/{{_id}}"><h1>{{title}}</h1></a>
+            <div class="h1-underline">&nbsp;</div>
+            <time>{{printDate date}}</time>
+        </div>
+        <div class="preview-content-body">
+            <p>
+                {{{excerpt}}}
+            </p>
+        </div>
+        <div class="preview-content-footer">
+            <a href="/cat/{{category._id}}"><button class="category">{{category.name}}</button></a>
+            <a href="/post/{{_id}}"><button class="actionRead">Read More</button></a>
+        </div>
+    </div>
+</article>
+    
+{{/each}}

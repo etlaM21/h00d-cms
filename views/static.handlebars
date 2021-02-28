@@ -1,0 +1,18 @@
+{{!-- views/post.handlebars --}}
+
+<article class="post">
+    <div class="post-image" style="background-image: url('{{static.imgurl}}');">
+        &nbsp;
+    </div>
+    <div class="post-content">
+        <div class="post-content-head">
+            <a><h1>{{static.title}}</h1></a>
+            <div class="h1-underline">&nbsp;</div>
+        </div>
+        <div class="post-content-body">
+            <p>
+                {{{static.content}}}
+            </p>
+        </div>
+    </div>
+</article>

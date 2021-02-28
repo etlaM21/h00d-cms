@@ -1,0 +1,26 @@
+{{!-- views/admin-categories.handlebars --}}
+
+
+<article>
+    <h1>Add or edit categories.</h1>
+</article>
+<article>
+    <h1>Available categories:</h1>
+    
+    <div class="backend-categories">
+    {{#each categories}}
+    <span>
+        {{name}}
+    </span>
+    {{/each}}
+    </div>
+</article>
+<article>
+    <form action="./categories" method="POST">
+        <input type="text" width="100" name="category" id="category" class="input", placeholder="New category ...">{{category}}</input>
+
+        <div class="btn-holder">
+            <input type="submit" value="Add" class="btn wide">
+        </div>
+    </form>
+</article>

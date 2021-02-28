@@ -1,0 +1,33 @@
+<nav>
+    <a {{{setHomeAsActive isHome}}} href="../">Home</a>
+    {{#each navlink}}
+    <a {{{setActiveIfCurrent name ../activeNavlink}}} href="/cat/{{_id}}">{{name}}</a>
+    {{/each}}
+    <div id="nav-underline">&nbsp;</div>
+</nav>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        attachNavScript();
+        adjustNavUnderline(document.getElementsByTagName("nav")[0].getElementsByClassName("active-nav")[0]);
+    });
+
+    function attachNavScript(){
+        let navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
+        for(i = 0; i < navlinks.length; i++){
+            navlinks[i].addEventListener("mouseover", (event) => {
+                adjustNavUnderline(event.currentTarget);
+            });
+            navlinks[i].addEventListener("mouseleave",(event) => {
+                adjustNavUnderline(document.getElementsByTagName("nav")[0].getElementsByClassName("active-nav")[0]);
+            });
+        }
+    }
+
+    function adjustNavUnderline(focusElement){
+        let underline = document.getElementById("nav-underline");
+        console.log(focusElement);
+        underline.style.width = focusElement.offsetWidth + "px";
+        underline.style.left = focusElement.offsetLeft + "px";
+    }
+</script>
